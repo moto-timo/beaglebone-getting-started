@@ -11,7 +11,7 @@ before_deploy:
 - cd ../../..
 deploy:
   provider: releases
-  api_key: "$GITHUBDEPLOY"
+  api_key: "$id_rsa"
   file: build/beaglebone-getting-started/bgs-osx32.zip
   skip_cleanup: true
   on:
