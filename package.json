@@ -3,7 +3,9 @@
   "description": "BeagleBone Getting Started builder",
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-node-webkit-builder": "~1.0.2"
+    "grunt-node-webkit-builder": "~1.0.2",
+    "grunt-cli": "~0.1.13",
+    "grunt-remotefile": "~0.1.0"
   },
   "scripts": {
     "test": "grunt test"
