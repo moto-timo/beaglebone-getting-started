@@ -18,6 +18,26 @@ module.exports = function(grunt) {
             src: '<%= appFiles %>'
         },
 
+        jade: {
+            compile: {
+                options: {
+                    data: {
+                        debug: false,
+                        timestamp: '<%= new Date().getTime() %>'
+                    }
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'App/templates',
+                        src: ['**/*.jade'],
+                        dest: 'App/html',
+                        ext: '.html'
+                    },
+                ]
+            }
+        },
+
         remotefile: {
             "jquery": {
                 url:'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
@@ -74,14 +94,16 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-node-webkit-builder');
+    grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-remotefile');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-mocha-istanbul');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jscs');
 
-    grunt.registerTask('build', ['nodewebkit']);
+    grunt.registerTask('make_html', ['jade']);
+    grunt.registerTask('build', ['jade', 'nodewebkit']);
     grunt.registerTask('getdependencies', ['remotefile']);
     grunt.registerTask('test', ['mochaTest', 'jshint', 'jscs', 'mocha_istanbul:coverage']);
 
- };
+};
