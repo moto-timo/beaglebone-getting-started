@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                 version: '0.12.2',
                 buildDir: './build',
                 macIcns: './App/beaglebone-getting-started.icns',
-                platforms: [win', 'osx', 'linux'] // builds both 32 and 64 bit versions
+                platforms: ['win', 'osx', 'linux'] // builds both 32 and 64 bit versions
             },
             src: '<%= appFiles %>'
         },
@@ -40,20 +40,20 @@ module.exports = function(grunt) {
 
         remotefile: {
             "jquery": {
-                url:'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
-                dest:'App/js/jquery.min.js'
+                url:'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+                dest:'App/js/libs/jquery.min.js'
             },
             "bootstrap-js": {
                 url:'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js',
-                dest:'App/css/bootstrap.min.js'
+                dest:'App/js/libs/bootstrap.min.js'
             },
             "font-awesome": {
                 url:'http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css',
-                dest:'App/css/font-awesome.min.css'
+                dest:'App/css/libs/font-awesome.min.css'
             },
             "bootstrap-pingendo-theme": {
                 url:'http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css',
-                dest:'App/css/bootstrap.min.js'
+                dest:'App/css/libs/bootstrap.css'
             }
         },
 
@@ -101,9 +101,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jscs');
 
-    grunt.registerTask('make_html', ['jade']);
-    grunt.registerTask('build', ['jade', 'nodewebkit']);
     grunt.registerTask('getdependencies', ['remotefile']);
+    grunt.registerTask('make_html', ['jade']);
+    grunt.registerTask('make_package', ['nodewebkit']);
+    grunt.registerTask('build', ['remotefile', 'jade', 'nodewebkit']);
     grunt.registerTask('test', ['mochaTest', 'jshint', 'jscs', 'mocha_istanbul:coverage']);
 
 };
