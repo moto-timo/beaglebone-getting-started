@@ -19,7 +19,9 @@
     "jscs": "~1.13.1",
     "grunt-jscs": "~0.8.1"
   },
-  "scripts": {
-    "test": "grunt test"
-  }
+  "scripts":
+    {
+      "test": "grunt test",
+      "install": "grunt build"
+    }
 }
