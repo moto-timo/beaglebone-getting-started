@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     var appSources = ['App/*.js', 'test/**/*.js'];
 
     grunt.initConfig({
-        appFiles: ['./App/**', './Docs/**', './README.htm'],
+        appFiles: ['./App/**', '!./App/templates/**', './Docs/**', './README.htm'],
         appSources: appSources,
         jsSources: appSources.slice().concat('Gruntfile.js'),
         jsTests: ['test/**/*.js'],
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                 version: '0.12.2',
                 buildDir: './build',
                 macIcns: './App/beaglebone-getting-started.icns',
-                platforms: ['win', 'osx', 'linux'] // builds both 32 and 64 bit versions
+                platforms: [win', 'osx', 'linux'] // builds both 32 and 64 bit versions
             },
             src: '<%= appFiles %>'
         },
