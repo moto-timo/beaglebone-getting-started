@@ -1,6 +1,13 @@
 module.exports = function(grunt) {
 
+    var appSources = ['App/*.js', 'test/**/*.js'];
+
     grunt.initConfig({
+        appFiles: ['./App/**', './Docs/**', './README.htm'],
+        appSources: appSources,
+        jsSources: appSources.slice().concat('Gruntfile.js'),
+        jsTests: ['test/**/*.js'],
+
         nodewebkit: {
             options: {
                 version: '0.12.2',
@@ -8,7 +15,7 @@ module.exports = function(grunt) {
                 macIcns: './App/beaglebone-getting-started.icns',
                 platforms: ['win', 'osx', 'linux'] // builds both 32 and 64 bit versions
             },
-            src: ['./App/**', './Docs/**', './README.htm']
+            src: '<%= appFiles %>'
         },
 
         remotefile: {
@@ -28,14 +35,53 @@ module.exports = function(grunt) {
                 url:'http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css',
                 dest:'App/css/bootstrap.min.js'
             }
+        },
+
+        mochaTest: {
+            test: {
+                options: {
+                    reporter: 'spec'
+                },
+                src: '<%= jsTests %>'
+            }
+        },
+
+        mocha_istanbul: {
+            coverage: {
+                src: '<%= appSources %>',
+                options: {
+                    mask: '*.js'
+                }
+            }
+        },
+
+        jshint: {
+            files: '<%= jsSources %>',
+            options: {
+                globals: {
+                    node: true,
+                    jQuery: true
+                }
+            }
+        },
+
+        jscs: {
+            src: '<%= jsSources %>',
+            options: {
+                config: ".jscsrc"
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-node-webkit-builder');
     grunt.loadNpmTasks('grunt-remotefile');
+    grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-mocha-istanbul');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jscs');
 
     grunt.registerTask('build', ['nodewebkit']);
     grunt.registerTask('getdependencies', ['remotefile']);
-    grunt.registerTask('test', []);
+    grunt.registerTask('test', ['mochaTest', 'jshint', 'jscs', 'mocha_istanbul:coverage']);
 
-};
+ };
