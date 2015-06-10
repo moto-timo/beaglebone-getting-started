@@ -1,0 +1,8 @@
+{
+  "pages": {
+    "index": {
+      "connect_beagle": "Bitte schließen Sie das Beagleboard über USB an",
+      "detect_beagle": "Finde Beagle"
+    }
+  }
+}
