@@ -4,11 +4,11 @@ html
     title Beaglebone getting started - Beaglebone.org
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    script(type='text/javascript', src='../js/menubar.js')
-    script(type='text/javascript', src='../js/libs/jquery.min.js')
-    script(type='text/javascript', src='../js/libs/bootstrap.min.js')
-    link(href='../css/libs/font-awesome.min.css', rel='stylesheet', type='text/css')
-    link(href='../css/libs/bootstrap.css', rel='stylesheet', type='text/css')
+    script(type='text/javascript', src='../../js/menubar.js')
+    script(type='text/javascript', src='../../js/libs/jquery.min.js')
+    script(type='text/javascript', src='../../js/libs/bootstrap.min.js')
+    link(href='../../css/libs/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='../../css/libs/bootstrap.css', rel='stylesheet', type='text/css')
   body
     .cover.hidden-sm
       .navbar
@@ -31,29 +31,29 @@ html
                   span.caret
                 ul.dropdown-menu(role='menu')
                   li
-                    a(href='#') English
+                    a(href='../de/index.html') English
                   li.divider
                   li
-                    a(href='#') Portuguese (Brazil)
+                    a(href='../pt_BR/index.html') Portuguese (Brazil)
                   li
-                    a(href='#') French
+                    a(href='../fr/index.html') French
                   li
-                    a(href='#') German
+                    a(href='../de/index.html') German
                   li
-                    a(href='#') Spanish
-      .cover-image(style="background-image: url('../images/background.jpg')")
+                    a(href='../es_ES/index.html') Spanish
+      .cover-image(style="background-image: url('../../images/background.jpg')")
       .container
         .row
           .col-md-12.text-center
             h1.text-inverse Beaglebone getting started
-            p.text-inverse Please connect your Beaglebone via USB
+            p.text-inverse #{$i18n.pages.index.connect_beagle}
             br
             br
-            a.btn.btn-lg.btn-primary(data-toggle='modal', data-target='.bs-example-modal-sm') Detect my device
+            a.btn.btn-lg.btn-primary(data-toggle='modal', data-target='.bs-example-modal-sm') #{$i18n.pages.index.detect_beagle}
             .modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true')
               .modal-dialog.modal-sm
                 .modal-content
-                  img(src='../images/boris_cape.png')
+                  img(src='../../images/boris_cape.png')
                   br
                   br
                   | .. Detecting device ...
