@@ -1,7 +1,7 @@
 {
  "name": "beaglebone-getting-started"
  , "version": "0.0.2"
- , "main": "html/index.html"
+ , "main": "html/en/index.html"
  , "description": "BeagleBone Getting Started App"
  , "keywords": [ "beaglebone", "linux", "nw.js" ]
  , "window": {
