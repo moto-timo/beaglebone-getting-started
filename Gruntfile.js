@@ -24,6 +24,10 @@ module.exports = function(grunt) {
                     data: {
                         debug: false,
                         timestamp: '<%= new Date().getTime() %>'
+                    },
+                    i18n: {
+                        locales: 'App/i18n/**/*.json',
+                        namespace: '$i18n'
                     }
                 },
                 files: [
@@ -94,7 +98,7 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-node-webkit-builder');
-    grunt.loadNpmTasks('grunt-contrib-jade');
+    grunt.loadNpmTasks('grunt-jade-i18n');
     grunt.loadNpmTasks('grunt-remotefile');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-mocha-istanbul');
