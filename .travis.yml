@@ -1,18 +1,20 @@
 language: node_js
 node_js:
-  - "0.10"
-before_install: npm install -g grunt-cli
+  - "iojs"
+before_install:
+  - npm install -g grunt grunt-cli
+  - npm install --save-dev App/
 install: npm install
 before_script: grunt build
 before_deploy:
   - ls -R
-  - cd build/beaglebone-getting-started/osx32
-  - zip ../bgs-osx32.zip *
+  - cd build/beaglebone-getting-started/linux64
+  - zip ../beagle-getting-started_linux64.zip *
   - cd ../../..
 deploy:
   provider: releases
   api_key: $GITHUBDEPLOY
-  file: "build/beaglebone-getting-started/bgs-osx32.zip"
+  file: "build/beaglebone-getting-started/beagle-getting-started_linux64.zip"
   skip_cleanup: true
   on:
     tags: true
