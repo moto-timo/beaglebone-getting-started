@@ -1,46 +1,9 @@
 doctype html
 html
-  head
-    title Beaglebone getting started - Beaglebone.org
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    script(type='text/javascript', src='../../js/menubar.js')
-    script(type='text/javascript', src='../../js/libs/jquery.min.js')
-    script(type='text/javascript', src='../../js/libs/bootstrap.min.js')
-    link(href='../../css/libs/font-awesome.min.css', rel='stylesheet', type='text/css')
-    link(href='../../css/libs/bootstrap.css', rel='stylesheet', type='text/css')
+  include ./includes/head.jade
   body
     .cover.hidden-sm
-      .navbar
-        .container
-          .navbar-header
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-ex-collapse')
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(href='http://www.beagleboard.org/', target='_blank')
-              span Beagleboard.org
-          #navbar-ex-collapse.collapse.navbar-collapse
-            ul.nav.navbar-nav.navbar-right
-              li.active
-                a(href='#') Home
-              li
-                a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-                  | Language 
-                  span.caret
-                ul.dropdown-menu(role='menu')
-                  li
-                    a(href='../de/index.html') English
-                  li.divider
-                  li
-                    a(href='../pt_BR/index.html') Portuguese (Brazil)
-                  li
-                    a(href='../fr/index.html') French
-                  li
-                    a(href='../de/index.html') German
-                  li
-                    a(href='../es_ES/index.html') Spanish
+      include ./includes/navbar
       .cover-image(style="background-image: url('../../images/background.jpg')")
       .container
         .row
