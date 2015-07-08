@@ -1,0 +1,12 @@
+doctype html
+html
+    include ./includes/head.jade
+    body
+        .cover.hidden-sm
+            include ./includes/navbar
+            .cover-image(style="background-image: url('../../images/background.jpg')")
+            .container
+                .row
+                    .col-md-12.text-center
+                        h1.text-inverse ssh terminal
+                        iframe(src='http://localhost:8000/public.html', style='width: 80%; height: 300px;', nwdisable='', nwfaketop='')
