@@ -1,0 +1,30 @@
+doctype html
+html
+  include ./includes/head.jade
+  body
+    .cover.hidden-sm
+      include ./includes/navbar
+      .cover-image(style="background-image: url('../../images/background.jpg')")
+      .container
+        .row
+          .col-md-12.text-center
+            h1.text-inverse Drag and scp copy files
+            style.
+              #holder { border: 10px dashed #ccc; width: 300px; height: 300px; margin: 20px auto;}
+              #holder.hover { border: 10px dashed #333; }
+
+            #holder
+            script.
+              // prevent default behavior from changing page on dropped file
+              window.ondragover = function(e) { e.preventDefault(); return false };
+              window.ondrop = function(e) { e.preventDefault(); return false };
+              var holder = document.getElementById('holder');
+              holder.ondragover = function () { this.className = 'hover'; return false; };
+              holder.ondragleave = function () { this.className = ''; return false; };
+              holder.ondrop = function (e) {
+                e.preventDefault();
+                for (var i = 0; i < e.dataTransfer.files.length; ++i) {
+                  console.log(e.dataTransfer.files[i].path);
+                }
+                return false;
+              };
