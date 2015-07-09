@@ -1,6 +1,6 @@
 beaglebone-getting-started
 ==========================
-[![Build Status](https://travis-ci.org/jadonk/beaglebone-getting-started.svg)](https://travis-ci.org/jadonk/beaglebone-getting-started)
+Travis-ci: [![Build Status](https://travis-ci.org/moto-timo/beaglebone-getting-started.svg?branch=nwjs)](https://travis-ci.org/moto-timo/beaglebone-getting-started)
 
 BeagleBone Getting Started Guide
 
