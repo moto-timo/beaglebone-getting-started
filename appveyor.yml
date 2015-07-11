@@ -37,6 +37,7 @@ test_script:
 matrix:
   # fast_finish: true
   allow_failures:
+    - nodejs_version: 0.8
     - nodejs_version: 0.12
     - nodejs_version: 1
 
