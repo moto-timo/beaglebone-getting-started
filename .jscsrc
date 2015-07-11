@@ -8,7 +8,6 @@
 , "disallowSpaceAfterObjectKeys": true
 , "disallowTrailingWhitespace": true
 , "requireCapitalizedConstructors": true
-, "validateLineBreaks": [ "LF","CRLF" ]
 , "requireSpaceBeforeBinaryOperators": [ "+", "-", "/", "*", "=", "==", "===", "!=", "!==" ]
 , "requireSpaceAfterBinaryOperators": [ "+", "-", "/", "*", "=", "==", "===", "!=", "!==" ]
 , "requireSpaceAfterKeywords": [ "if", "else", "for", "while", "do", "switch", "try", "catch" ]
