@@ -1,10 +1,12 @@
 language: node_js
 node_js:
   - "iojs"
-sudo: required
+sudo: false
+addons:
+  apt:
+    packages:
+      - libavahi-compat-libdnssd-dev
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y libavahi-compat-libdnssd-dev
   - npm install -g grunt grunt-cli
   - npm install --save-dev App/
 install: npm install
