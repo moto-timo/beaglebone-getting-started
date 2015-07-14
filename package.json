@@ -2,7 +2,7 @@
   "name": "beaglebone-getting-started-builder",
   "description": "BeagleBone Getting Started builder",
   "author": "Ariane Paola Gomes (http://arianepaola.com)",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "license" : "SEE LICENSE IN LICENSE.txt",
   "repository" :  {
     "type": "git",
