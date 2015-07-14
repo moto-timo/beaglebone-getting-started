@@ -1,12 +1,10 @@
 language: node_js
 node_js:
   - "iojs"
-sudo: false
-addons:
-  apt:
-    packages:
-      - libavahi-compat-libdnssd-dev
+sudo: required
 before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y libavahi-compat-libdnssd-dev
   - npm install -g grunt grunt-cli
   - npm install --save-dev App/
 install: npm install
@@ -18,8 +16,12 @@ before_deploy:
   - cd ../../..
 deploy:
   provider: releases
-  api_key: $GITHUBDEPLOY
+  api_key: $GITPERM
   file: "build/beaglebone-getting-started/beagle-getting-started_linux64.zip"
   skip_cleanup: true
   on:
     tags: true
+env:
+  global:
+  - secure: HnUFh/+rM7FOT5ZnYeqcYGr0FHV3NdNxo6f8iEMo3SMVfHjwt7EKPNrEkuRUIenrRGJt5+D1BLWSOMMUjadPpIZyE7We6KyaM84MPsZuyNi2zOV6/ytVOPSq4zj91YVcdcE7/jg1Ok0fMu+WiSNAmju2wl2X/NnYT5o60bV/9RIe0qWGAvaqc1RqLO1EFziIEtRDLYIgvgneSAehQ1rgl1FXnQg/p+79HnTvVUCN986YMC0vndqXPQJ1a59xe7A32fPwgN5eTNiq/C1sXhGQZb8LauOAubpTFK5RDxoK8arb4CDqDzwbdZK7CzPJKkCOgK3/PqgG74aSS5yQlGU4gh1x5/ds02IndKG57qy6AS7EvIJkjVGybrhwT1mWo25xVnS+e9jrbLkibFBJ5AmsTgnz5rWs86ee1bbqY6/qlrpACXduFnr0ZtrBno+mDBVQFB3qEvJWv2auhxNbtVcO2MQ850WSyq0eTx+LK4b5qqAojZGmR1wXP9+z7s9MoDFCwBL6nuDgtCgo+B4Bkp/Pm4N/yX9l10VFAVsBDt/i4qRxVDHbdcTX9gPG1qWsHuK6pG5C4hFYmaKl111baeBl0GOppGvPuzVmiJx8zGGRDU2Ls+GxJBfhMM43wkdADqdYhqf6Vn/dOZBBPj3RZYynYaoqbFLCC/E0OLd1FGJMd04=
+
